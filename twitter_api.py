@@ -13,23 +13,23 @@ client = UserClient(
 )
 
 # user inputs
-radius = input("enter a radius ex: 1mi, 15mi:  ->")
-address = input("enter an address. ex: 123 fake street Houston, TX 77006:  ->")
+# radius = input("enter a radius ex: 1mi, 15mi:  ->")
+# address = input("enter an address. ex: 123 fake street Houston, TX 77006:  ->")
 query = input("enter a search query. ex: hurricane harvey 2017:  ->")
 # since_id = input("enter a start date. ex: 2017-11-03 ")
 # until = input("enter an end date. ex: 2017-11-03 ")
 
 # GeoLocation
-geolocator = Nominatim()
-def gen_location(address):
-    if address:
-        return geolocator.geocode(address)
-    else:
-        return gen_location(input("no address found. please enter address"))
-# GEOCODE
-location = gen_location(address)
-coordinates = "{} {}".format(location.latitude, location.longitude)
-geocode = "{} {}".format(coordinates, radius)
+# geolocator = Nominatim()
+# def gen_location(address):
+#     if address:
+#         return geolocator.geocode(address)
+#     else:
+#         return gen_location(input("no address found. please enter address"))
+# # GEOCODE
+# location = gen_location(address)
+# coordinates = "{} {}".format(location.latitude, location.longitude)
+# geocode = "{} {}".format(coordinates, radius)
 
 
 # Date
@@ -77,7 +77,6 @@ response_headers = response.headers        # dictionary containing response HTTP
 
 statuses = response_data['statuses']
 
-print(statuses)
 
 for status in statuses:
     created_at = status['created_at']
@@ -86,14 +85,8 @@ for status in statuses:
     place = status['place']
     retweet_count = status['retweet_count']
     lang = status['lang']
+    geo = status=['geo']
     # lists
-    hashtags = status['entities']['hashtags']
-    user_mentions = status['entities']['user_mentions']
-    urls = status['entities']['urls']
-    user = status['user']
-    # print("#" * 50)
-    # print("text: {}".format(text))
-    # print(coordinates)
-    # print(place)
+    print(created_at)
 
 #statuses = json.dumps(response_data)
